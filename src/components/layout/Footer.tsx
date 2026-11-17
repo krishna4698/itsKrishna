@@ -13,8 +13,9 @@ export function Footer() {
       style={{
         marginTop: 'auto',
         borderTop: '1px solid var(--border-default)',
-        backgroundColor: 'var(--bg-surface-elevated)',
+        backgroundColor: 'var(--bg-secondary)',
         padding: '4rem 0 3rem 0',
+        transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
       <div className="container">
@@ -95,11 +96,6 @@ export function Footer() {
                 fontSize: '0.9rem',
               }}
             >
-              <li>
-                <a href="/#about" style={{ color: 'var(--text-secondary)' }}>
-                  About & Background
-                </a>
-              </li>
               <li>
                 <a href="/#projects" style={{ color: 'var(--text-secondary)' }}>
                   Selected Projects

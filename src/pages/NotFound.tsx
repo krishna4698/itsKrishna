@@ -23,7 +23,7 @@ export function NotFound() {
             marginBottom: '1rem',
           }}
         >
-          // ERROR 404
+          ERROR 404
         </span>
         <h1
           style={{

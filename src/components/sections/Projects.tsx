@@ -17,9 +17,11 @@ export function Projects() {
     <section
       id="projects"
       style={{
+        backgroundColor: 'var(--bg-secondary)',
         paddingTop: 'clamp(4rem, 7vw, 6.5rem)',
         paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
         borderBottom: '1px solid var(--border-default)',
+        transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
       <div className="container">
@@ -34,7 +36,7 @@ export function Projects() {
           }}
         >
           <SectionHeading
-            kicker="04. Selected Work"
+            kicker="Selected Work"
             title="Production Systems & Case Studies"
             description="Deep-dive engineering projects showcasing system design, throughput bottlenecks, concurrency management, and fault-tolerance patterns."
             className="projects-heading"
@@ -58,7 +60,7 @@ export function Projects() {
                   onClick={() => setSelectedCategory(cat)}
                   style={{
                     backgroundColor: isSelected ? 'var(--accent-primary)' : 'var(--bg-surface)',
-                    color: isSelected ? '#FFFFFF' : 'var(--text-secondary)',
+                    color: isSelected ? 'var(--accent-contrast)' : 'var(--text-secondary)',
                     border: isSelected ? '1px solid var(--accent-primary)' : '1px solid var(--border-default)',
                     padding: '0.45rem 0.95rem',
                     borderRadius: 'var(--radius-xs)',

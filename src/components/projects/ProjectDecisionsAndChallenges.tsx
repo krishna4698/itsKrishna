@@ -21,7 +21,7 @@ export function ProjectDecisionsAndChallenges({ project }: ProjectDecisionsAndCh
             marginBottom: '0.5rem',
           }}
         >
-          // 06. ARCHITECTURAL TRADE-OFFS
+          ARCHITECTURAL TRADE-OFFS
         </span>
         <h2
           style={{
@@ -131,7 +131,7 @@ export function ProjectDecisionsAndChallenges({ project }: ProjectDecisionsAndCh
             marginBottom: '0.5rem',
           }}
         >
-          // 07. POST-MORTEM & RESOLUTION
+          POST-MORTEM & RESOLUTION
         </span>
         <h2
           style={{

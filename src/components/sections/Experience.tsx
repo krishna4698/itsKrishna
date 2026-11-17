@@ -1,7 +1,6 @@
 import { experienceData } from '../../data/experience.ts';
 import { personalData } from '../../data/personal.ts';
 import { SectionHeading } from '../common/SectionHeading.tsx';
-import { Badge } from '../common/Badge.tsx';
 
 export function Experience() {
   const { education } = personalData;
@@ -10,136 +9,118 @@ export function Experience() {
     <section
       id="experience"
       style={{
+        backgroundColor: 'var(--bg-secondary)',
         paddingTop: 'clamp(4rem, 7vw, 6.5rem)',
         paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
         borderBottom: '1px solid var(--border-default)',
+        transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
       <div className="container">
         <SectionHeading
-          kicker="03. Professional History"
+          kicker="Professional History"
           title="Engineering Experience & Roles"
           description="Chronological record of production engineering contributions, multi-tenant SaaS architectures, and full-stack implementations."
         />
 
-        {/* Work Experience Cards */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          {experienceData.map((item, idx) => (
+        {/* Unboxed Editorial Experience Ledger */}
+        <div
+          style={{
+            maxWidth: '920px',
+            borderTop: '1px solid var(--border-default)',
+          }}
+        >
+          {experienceData.map((item) => (
             <div
               key={item.id}
+              className="experience-ledger-row"
               style={{
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-default)',
-                borderRadius: 'var(--radius-sm)',
-                padding: 'clamp(1.5rem, 3.5vw, 2.25rem)',
-                transition: 'border-color 150ms ease',
+                display: 'grid',
+                gridTemplateColumns: 'minmax(180px, 220px) 1fr',
+                gap: '2rem',
+                padding: '2.5rem 0',
+                borderBottom: '1px solid var(--border-subtle)',
               }}
             >
-              {/* Header: Role & Metadata */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  gap: '1rem',
-                  marginBottom: '1rem',
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      flexWrap: 'wrap',
-                      marginBottom: '0.25rem',
-                    }}
-                  >
-                    <h3
-                      style={{
-                        fontFamily: 'var(--font-serif)',
-                        fontSize: '1.45rem',
-                        fontWeight: 600,
-                        color: 'var(--text-primary)',
-                      }}
-                    >
-                      {item.role}
-                    </h3>
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-sans)',
-                        fontSize: '1rem',
-                        color: 'var(--accent-primary)',
-                        fontWeight: 600,
-                      }}
-                    >
-                      @ {item.company}
-                    </span>
-                  </div>
-
-                  <span
-                    style={{
-                      fontSize: '0.85rem',
-                      color: 'var(--text-muted)',
-                      display: 'block',
-                    }}
-                  >
-                    {item.location} · {item.type}
-                  </span>
-                </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.8125rem',
-                      fontWeight: 600,
-                      color: idx === 0 ? 'var(--accent-primary)' : 'var(--text-secondary)',
-                      backgroundColor: idx === 0 ? 'var(--accent-light)' : 'var(--bg-surface-subtle)',
-                      border: idx === 0 ? '1px solid var(--accent-border)' : '1px solid var(--border-subtle)',
-                      padding: '0.35rem 0.75rem',
-                      borderRadius: 'var(--radius-xs)',
-                    }}
-                  >
-                    {item.period}
-                  </span>
-                </div>
-              </div>
-
-              {/* Role Summary */}
-              <p
-                style={{
-                  fontSize: '0.975rem',
-                  lineHeight: 1.65,
-                  color: 'var(--text-secondary)',
-                  marginBottom: '1.25rem',
-                }}
-              >
-                {item.description}
-              </p>
-
-              {/* Technical Contributions */}
-              <div style={{ marginBottom: '1.5rem' }}>
+              {/* Left Column: Period & Location (Resume Metadata) */}
+              <div>
                 <span
                   style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.72rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.06em',
-                    color: 'var(--text-muted)',
+                    fontSize: '0.85rem',
+                    fontWeight: 600,
+                    color: 'var(--accent-primary)',
                     display: 'block',
-                    marginBottom: '0.65rem',
+                    marginBottom: '0.25rem',
                   }}
                 >
-                  Key Engineering Contributions
+                  {item.period}
                 </span>
+                <span
+                  style={{
+                    fontSize: '0.825rem',
+                    color: 'var(--text-muted)',
+                    display: 'block',
+                  }}
+                >
+                  {item.location} · {item.type}
+                </span>
+              </div>
+
+              {/* Right Column: Role, Company & Contributions */}
+              <div>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    gap: '0.5rem',
+                    flexWrap: 'wrap',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-serif)',
+                      fontSize: '1.45rem',
+                      fontWeight: 600,
+                      color: 'var(--text-primary)',
+                      margin: 0,
+                    }}
+                  >
+                    {item.role}
+                  </h3>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '1.05rem',
+                      color: 'var(--text-secondary)',
+                      fontWeight: 500,
+                    }}
+                  >
+                    @ {item.company}
+                  </span>
+                </div>
+
+                <p
+                  style={{
+                    fontSize: '0.95rem',
+                    lineHeight: 1.65,
+                    color: 'var(--text-secondary)',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  {item.description}
+                </p>
+
+                {/* Key Contributions */}
                 <ul
                   style={{
                     listStyle: 'none',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '0.65rem',
+                    gap: '0.55rem',
+                    marginBottom: '1.25rem',
+                    padding: 0,
                   }}
                 >
                   {item.contributions.map((c, cIdx) => (
@@ -148,7 +129,7 @@ export function Experience() {
                       style={{
                         fontSize: '0.925rem',
                         color: 'var(--text-secondary)',
-                        lineHeight: 1.55,
+                        lineHeight: 1.6,
                         display: 'flex',
                         alignItems: 'flex-start',
                         gap: '0.65rem',
@@ -158,7 +139,7 @@ export function Experience() {
                         style={{
                           color: 'var(--accent-primary)',
                           fontWeight: 700,
-                          marginTop: '0.1rem',
+                          lineHeight: 1.4,
                         }}
                       >
                         –
@@ -167,47 +148,38 @@ export function Experience() {
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              {/* Technologies Used */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  flexWrap: 'wrap',
-                  paddingTop: '1rem',
-                  borderTop: '1px solid var(--border-subtle)',
-                }}
-              >
-                <span
+                {/* Technologies (Clean Inline Spec, No Badges) */}
+                <div
                   style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.72rem',
+                    fontSize: '0.85rem',
                     color: 'var(--text-muted)',
-                    textTransform: 'uppercase',
-                    marginRight: '0.35rem',
+                    lineHeight: 1.6,
                   }}
                 >
-                  Technologies:
-                </span>
-                {item.technologies.map((tech) => (
-                  <Badge key={tech} variant="tech">
-                    {tech}
-                  </Badge>
-                ))}
+                  <strong style={{ color: 'var(--text-primary)', fontWeight: 600, marginRight: '0.35rem' }}>
+                    Technologies:
+                  </strong>
+                  <span>{item.technologies.join(' · ')}</span>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Education Section */}
-        <div style={{ marginTop: '3.5rem' }}>
-          <div style={{ marginBottom: '1.25rem' }}>
+        {/* Education Section (Unboxed) */}
+        <div style={{ maxWidth: '920px', marginTop: '4rem' }}>
+          <div
+            style={{
+              paddingBottom: '0.75rem',
+              borderBottom: '1px solid var(--border-default)',
+              marginBottom: '0',
+            }}
+          >
             <span
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.75rem',
+                fontSize: '0.72rem',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
                 color: 'var(--accent-primary)',
@@ -216,14 +188,15 @@ export function Experience() {
                 marginBottom: '0.25rem',
               }}
             >
-              // ACADEMIC FOUNDATION
+              ACADEMIC FOUNDATION
             </span>
             <h3
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '1.65rem',
+                fontSize: '1.5rem',
                 fontWeight: 600,
                 color: 'var(--text-primary)',
+                margin: 0,
               }}
             >
               Education
@@ -231,99 +204,78 @@ export function Experience() {
           </div>
 
           <div
+            className="experience-ledger-row"
             style={{
-              backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border-default)',
-              borderRadius: 'var(--radius-sm)',
-              padding: 'clamp(1.5rem, 3.5vw, 2.25rem)',
+              display: 'grid',
+              gridTemplateColumns: 'minmax(180px, 220px) 1fr',
+              gap: '2rem',
+              padding: '2rem 0',
+              borderBottom: '1px solid var(--border-subtle)',
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                gap: '1rem',
-                marginBottom: '1rem',
-              }}
-            >
-              <div>
-                <h4
-                  style={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: '1.35rem',
-                    fontWeight: 600,
-                    color: 'var(--text-primary)',
-                    marginBottom: '0.25rem',
-                  }}
-                >
-                  {education.degree} in {education.field}
-                </h4>
-                <span
-                  style={{
-                    fontSize: '0.95rem',
-                    color: 'var(--accent-primary)',
-                    fontWeight: 600,
-                  }}
-                >
-                  {education.institution} · {education.location}
-                </span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                {education.grade && (
-                  <Badge variant="category">{education.grade}</Badge>
-                )}
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8125rem',
-                    fontWeight: 600,
-                    color: 'var(--text-secondary)',
-                    backgroundColor: 'var(--bg-surface-subtle)',
-                    border: '1px solid var(--border-subtle)',
-                    padding: '0.35rem 0.75rem',
-                    borderRadius: 'var(--radius-xs)',
-                  }}
-                >
-                  {education.period}
-                </span>
-              </div>
-            </div>
-
-            {education.coursework && (
-              <div
+            <div>
+              <span
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  flexWrap: 'wrap',
-                  paddingTop: '1rem',
-                  borderTop: '1px solid var(--border-subtle)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  color: 'var(--accent-primary)',
+                  display: 'block',
+                  marginBottom: '0.25rem',
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.72rem',
-                    color: 'var(--text-muted)',
-                    textTransform: 'uppercase',
-                    marginRight: '0.35rem',
-                  }}
-                >
-                  Core Coursework:
-                </span>
-                {education.coursework.map((course) => (
-                  <Badge key={course} variant="tech">
-                    {course}
-                  </Badge>
-                ))}
-              </div>
-            )}
+                {education.period}
+              </span>
+              <span style={{ fontSize: '0.825rem', color: 'var(--text-muted)' }}>
+                {education.location}
+              </span>
+            </div>
+
+            <div>
+              <h4
+                style={{
+                  fontFamily: 'var(--font-serif)',
+                  fontSize: '1.3rem',
+                  fontWeight: 600,
+                  color: 'var(--text-primary)',
+                  marginBottom: '0.25rem',
+                }}
+              >
+                {education.degree} in {education.field}
+              </h4>
+              <p
+                style={{
+                  fontSize: '0.95rem',
+                  color: 'var(--text-secondary)',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                {education.institution} · <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>CGPA {education.grade}</span>
+              </p>
+
+              {education.coursework && (
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                  <strong style={{ color: 'var(--text-primary)', fontWeight: 600, marginRight: '0.35rem' }}>
+                    Core Coursework:
+                  </strong>
+                  <span>{education.coursework.join(', ')}</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Responsive Stacking */}
+      <style>{`
+        @media (max-width: 640px) {
+          .experience-ledger-row {
+            grid-template-columns: 1fr !important;
+            gap: 0.75rem !important;
+            padding: 1.75rem 0 !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -21,7 +21,7 @@ export function ProjectArchitectureSection({ project }: ProjectArchitectureSecti
           marginBottom: '0.5rem',
         }}
       >
-        // 05. SYSTEM DESIGN & FLOW
+        SYSTEM DESIGN & FLOW
       </span>
       <h2
         style={{

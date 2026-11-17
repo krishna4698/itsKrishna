@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 interface SectionHeadingProps {
-  kicker: string;
+  kicker?: string;
   title: string;
   description?: ReactNode;
   align?: 'left' | 'center';
@@ -25,24 +25,24 @@ export function SectionHeading({
         marginInline: align === 'center' ? 'auto' : undefined,
       }}
     >
-      <div
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.8rem',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          color: 'var(--accent-primary)',
-          fontWeight: 600,
-          marginBottom: '0.65rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          justifyContent: align === 'center' ? 'center' : 'flex-start',
-        }}
-      >
-        <span style={{ opacity: 0.5 }}>//</span>
-        <span>{kicker}</span>
-      </div>
+      {kicker && (
+        <div
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.8rem',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: 'var(--accent-primary)',
+            fontWeight: 600,
+            marginBottom: '0.65rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: align === 'center' ? 'center' : 'flex-start',
+          }}
+        >
+          <span>{kicker}</span>
+        </div>
+      )}
 
       <h2
         style={{

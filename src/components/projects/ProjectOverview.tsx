@@ -21,7 +21,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
             marginBottom: '0.5rem',
           }}
         >
-          // 01. EXECUTIVE SUMMARY
+          EXECUTIVE SUMMARY
         </span>
         <h2
           style={{
@@ -91,7 +91,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
             marginBottom: '0.5rem',
           }}
         >
-          // 02. PROBLEM DEFINITION
+          PROBLEM DEFINITION
         </span>
         <h2
           style={{
@@ -138,7 +138,7 @@ export function ProjectOverview({ project }: ProjectOverviewProps) {
             marginBottom: '0.5rem',
           }}
         >
-          // 03. SYSTEM CAPABILITIES
+          SYSTEM CAPABILITIES
         </span>
         <h2
           style={{

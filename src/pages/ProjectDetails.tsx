@@ -48,7 +48,7 @@ export function ProjectDetails() {
               marginBottom: '1rem',
             }}
           >
-            404 // CASE STUDY NOT FOUND
+            404 · CASE STUDY NOT FOUND
           </span>
           <h1
             style={{

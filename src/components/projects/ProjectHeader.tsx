@@ -165,7 +165,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
                 gap: '0.5rem',
                 padding: '0.65rem 1.2rem',
                 backgroundColor: 'var(--accent-primary)',
-                color: '#FFFFFF',
+                color: 'var(--accent-contrast)',
                 borderRadius: 'var(--radius-xs)',
                 fontSize: '0.875rem',
                 fontWeight: 500,

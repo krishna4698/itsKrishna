@@ -55,7 +55,7 @@ export function Badge({ children, variant = 'tech', className = '', hasDot = fal
     },
     accent: {
       backgroundColor: 'var(--accent-primary)',
-      color: '#FFFFFF',
+      color: 'var(--accent-contrast)',
       border: '1px solid var(--accent-primary)',
       fontFamily: 'var(--font-sans)',
     },

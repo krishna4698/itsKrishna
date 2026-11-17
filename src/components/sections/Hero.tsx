@@ -1,6 +1,5 @@
 import { personalData } from '../../data/personal.ts';
 import { ArrowRightIcon, GithubIcon, LinkedinIcon, MailIcon } from '../common/Icons.tsx';
-import { Badge } from '../common/Badge.tsx';
 
 export function Hero() {
   return (
@@ -122,7 +121,7 @@ export function Hero() {
             </div>
 
             {/* Technical Interests */}
-            <div style={{ marginBottom: '2.25rem' }}>
+            {/* <div style={{ marginBottom: '2.25rem' }}>
               <span
                 style={{
                   fontFamily: 'var(--font-mono)',
@@ -149,7 +148,7 @@ export function Hero() {
                   </Badge>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Action Buttons & Social Links */}
             <div
@@ -168,7 +167,7 @@ export function Hero() {
                   gap: '0.5rem',
                   padding: '0.75rem 1.4rem',
                   backgroundColor: 'var(--accent-primary)',
-                  color: '#FFFFFF',
+                  color: 'var(--accent-contrast)',
                   borderRadius: 'var(--radius-xs)',
                   fontWeight: 500,
                   fontSize: '0.95rem',
@@ -247,7 +246,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Profile Picture & Developer Card Container */}
+          {/* Right Column: Profile Picture & Editorial Presence (Unboxed) */}
           <div
             className="hero-profile-container"
             style={{
@@ -255,197 +254,147 @@ export function Hero() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              textAlign: 'center',
             }}
           >
+            {/* Profile Image Frame (Clean, Floating, Subtle Hairline Ring) */}
             <div
               style={{
-                width: '100%',
-                maxWidth: '380px',
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-default)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '2rem 1.75rem',
-                boxShadow: '0 4px 20px -2px rgba(32, 33, 31, 0.04)',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
+                width: '210px',
+                height: '210px',
+                borderRadius: '50%',
+                border: '2px solid var(--border-default)',
+                padding: '6px',
+                backgroundColor: 'transparent',
+                marginBottom: '1.25rem',
                 position: 'relative',
               }}
             >
-              {/* Profile Image Frame (Circular / Subtly Rounded per specification) */}
-              <div
-                style={{
-                  width: '180px',
-                  height: '180px',
-                  borderRadius: '50%',
-                  border: '3px solid var(--border-subtle)',
-                  padding: '5px',
-                  backgroundColor: 'var(--bg-main)',
-                  marginBottom: '1.5rem',
-                  position: 'relative',
-                }}
-              >
-                {/* SVG Geometric Monogram / Editorial Portrait Placeholder or Real Photo */}
-                <div
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '50%',
-                    backgroundColor: 'var(--accent-light)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    overflow: 'hidden',
-                    position: 'relative',
-                  }}
-                >
-                  {personalData.profileImage ? (
-                    <img
-                      src={personalData.profileImage}
-                      alt={personalData.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    />
-                  ) : (
-                    <svg
-                      viewBox="0 0 160 160"
-                      width="100%"
-                      height="100%"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      role="img"
-                      aria-label="Developer avatar placeholder"
-                    >
-                      <rect width="160" height="160" fill="#EEF3F0" />
-                      <circle cx="80" cy="62" r="32" fill="#234234" opacity="0.85" />
-                      <ellipse cx="80" cy="138" rx="54" ry="42" fill="#234234" opacity="0.85" />
-                      {/* Editorial monogram overlay */}
-                      <text
-                        x="80"
-                        y="70"
-                        fontFamily="Newsreader, Georgia, serif"
-                        fontSize="28"
-                        fontWeight="600"
-                        fill="#FFFFFF"
-                        textAnchor="middle"
-                      >
-                        KJ
-                      </text>
-                    </svg>
-                  )}
-                </div>
-
-                {/* Status Dot on avatar border */}
-                <div
-                  title="Available for engineering opportunities"
-                  style={{
-                    position: 'absolute',
-                    bottom: '8px',
-                    right: '12px',
-                    width: '18px',
-                    height: '18px',
-                    borderRadius: '50%',
-                    backgroundColor: '#2D8A4E',
-                    border: '3px solid var(--bg-surface)',
-                  }}
-                />
-              </div>
-
-              {/* Developer Details & Meta */}
-              <h3
-                style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '1.4rem',
-                  fontWeight: 600,
-                  color: 'var(--text-primary)',
-                  marginBottom: '0.25rem',
-                }}
-              >
-                {personalData.name}
-              </h3>
-              <p
-                style={{
-                  fontSize: '0.875rem',
-                  color: 'var(--text-secondary)',
-                  marginBottom: '1.25rem',
-                }}
-              >
-                Full Stack Developer · Backend & Distributed Systems
-              </p>
-
-              {/* Status Pill */}
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  fontSize: '0.775rem',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--text-primary)',
-                  backgroundColor: 'var(--bg-surface-subtle)',
-                  padding: '0.4rem 0.85rem',
-                  borderRadius: '9999px',
-                  border: '1px solid var(--border-subtle)',
-                  marginBottom: '1.25rem',
-                }}
-              >
-                <span
-                  style={{
-                    width: '6px',
-                    height: '6px',
-                    borderRadius: '50%',
-                    backgroundColor: '#2D8A4E',
-                    display: 'inline-block',
-                  }}
-                />
-                <span>Open for roles & contracts</span>
-              </div>
-
-              {/* Subtle Specification Grid */}
+              {/* SVG Geometric Monogram / Editorial Portrait Placeholder or Real Photo */}
               <div
                 style={{
                   width: '100%',
-                  borderTop: '1px solid var(--border-subtle)',
-                  paddingTop: '1rem',
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '0.75rem',
-                  textAlign: 'left',
+                  height: '100%',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--accent-light)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  overflow: 'hidden',
+                  position: 'relative',
                 }}
               >
-                <div>
-                  <span
-                    style={{
-                      display: 'block',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.6875rem',
-                      color: 'var(--text-muted)',
-                      textTransform: 'uppercase',
-                    }}
+                {personalData.profileImage ? (
+                  <img
+                    src={personalData.profileImage}
+                    alt={personalData.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  <svg
+                    viewBox="0 0 160 160"
+                    width="100%"
+                    height="100%"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Developer avatar placeholder"
                   >
-                    Location
-                  </span>
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 500, color: 'var(--text-primary)' }}>
-                    India
-                  </span>
-                </div>
-                <div>
-                  <span
-                    style={{
-                      display: 'block',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.6875rem',
-                      color: 'var(--text-muted)',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    Education
-                  </span>
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 500, color: 'var(--text-primary)' }}>
-                    B.Tech CSE (PTU)
-                  </span>
-                </div>
+                    <rect width="160" height="160" fill="var(--bg-secondary)" />
+                    <circle cx="80" cy="62" r="32" fill="var(--accent-primary)" opacity="0.85" />
+                    <ellipse cx="80" cy="138" rx="54" ry="42" fill="var(--accent-primary)" opacity="0.85" />
+                    {/* Editorial monogram overlay */}
+                    <text
+                      x="80"
+                      y="70"
+                      fontFamily="var(--font-serif)"
+                      fontSize="28"
+                      fontWeight="600"
+                      fill="var(--accent-contrast)"
+                      textAnchor="middle"
+                    >
+                      KJ
+                    </text>
+                  </svg>
+                )}
               </div>
+
+              {/* Status Dot on avatar border */}
+              <div
+                title="Available for engineering opportunities"
+                style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  right: '14px',
+                  width: '18px',
+                  height: '18px',
+                  borderRadius: '50%',
+                  backgroundColor: '#2D8A4E',
+                  border: '3px solid var(--bg-main)',
+                }}
+              />
+            </div>
+
+            {/* Developer Details & Meta */}
+            <h3
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.45rem',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                marginBottom: '0.2rem',
+              }}
+            >
+              {personalData.name}
+            </h3>
+            <p
+              style={{
+                fontSize: '0.875rem',
+                color: 'var(--text-secondary)',
+                marginBottom: '0.85rem',
+              }}
+            >
+              Full Stack Developer · Backend Systems
+            </p>
+
+            {/* Status Indicator */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.45rem',
+                fontSize: '0.78rem',
+                fontFamily: 'var(--font-mono)',
+                color: 'var(--text-secondary)',
+                marginBottom: '0.75rem',
+              }}
+            >
+              <span
+                style={{
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  backgroundColor: '#2D8A4E',
+                  display: 'inline-block',
+                }}
+              />
+              <span>Available for engineering roles</span>
+            </div>
+
+            {/* Quick Meta (Unboxed Typography) */}
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.65rem',
+                fontSize: '0.8125rem',
+                color: 'var(--text-muted)',
+                fontFamily: 'var(--font-mono)',
+              }}
+            >
+              <span>Punjab, India</span>
+              <span>·</span>
+              <span>B.Tech CSE (PTU)</span>
             </div>
           </div>
         </div>

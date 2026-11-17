@@ -1,5 +1,6 @@
 import { Router } from './router/Router.tsx';
 import { useRouter } from './router/useRouter.ts';
+import { ThemeProvider } from './context/ThemeProvider.tsx';
 import { Navbar } from './components/layout/Navbar.tsx';
 import { Footer } from './components/layout/Footer.tsx';
 import { Home } from './pages/Home.tsx';
@@ -25,21 +26,24 @@ function RouteSwitch() {
 
 export default function App() {
   return (
-    <Router>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          minHeight: '100vh',
-          backgroundColor: 'var(--bg-main)',
-        }}
-      >
-        <Navbar />
-        <div style={{ flex: 1 }}>
-          <RouteSwitch />
+    <ThemeProvider>
+      <Router>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+            backgroundColor: 'var(--bg-main)',
+            transition: 'background-color 200ms ease',
+          }}
+        >
+          <Navbar />
+          <div style={{ flex: 1 }}>
+            <RouteSwitch />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 }

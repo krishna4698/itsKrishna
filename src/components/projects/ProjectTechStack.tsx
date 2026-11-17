@@ -20,7 +20,7 @@ export function ProjectTechStack({ project }: ProjectTechStackProps) {
           marginBottom: '0.5rem',
         }}
       >
-        // 04. TECHNOLOGY STACK
+        TECHNOLOGY STACK
       </span>
       <h2
         style={{

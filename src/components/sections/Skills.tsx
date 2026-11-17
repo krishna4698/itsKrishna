@@ -6,140 +6,114 @@ export function Skills() {
     <section
       id="skills"
       style={{
-        paddingTop: 'clamp(4rem, 7vw, 6.5rem)',
-        paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
+        paddingTop: 'clamp(3.5rem, 6vw, 5.5rem)',
+        paddingBottom: 'clamp(3.5rem, 6vw, 5.5rem)',
         borderBottom: '1px solid var(--border-default)',
-        backgroundColor: 'var(--bg-surface-elevated)',
+        backgroundColor: 'var(--bg-main)',
+        transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
       <div className="container">
         <SectionHeading
-          kicker="02. Technical Arsenal"
+          kicker="Technical Arsenal"
           title="Skills, Languages & Technologies"
-          description="Technologies and tooling I use across system architecture, backend engineering, and interface development."
+          description="A direct overview of the languages, frameworks, databases, and infrastructure tools I work with daily."
         />
 
+        {/* Resume-Style Technical Spec Sheet (Clean One-Line Rows, No Boxes) */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '1.75rem',
+            maxWidth: '920px',
+            borderTop: '1px solid var(--border-default)',
           }}
         >
           {skillGroups.map((group, idx) => (
             <div
               key={idx}
+              className="skill-spec-row"
               style={{
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-default)',
-                borderRadius: 'var(--radius-sm)',
-                padding: '1.75rem',
-                display: 'flex',
-                flexDirection: 'column',
+                display: 'grid',
+                gridTemplateColumns: 'minmax(180px, 240px) 1fr',
+                gap: '1.5rem',
+                alignItems: 'baseline',
+                padding: '1.25rem 0',
+                borderBottom: '1px solid var(--border-subtle)',
               }}
             >
-              {/* Category Header */}
-              <div style={{ marginBottom: '1.25rem' }}>
+              {/* Category Label (Resume Style) */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span
                   style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6875rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: 'var(--accent-primary)',
-                    display: 'block',
-                    marginBottom: '0.25rem',
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--accent-primary)',
+                    display: 'inline-block',
+                    flexShrink: 0,
+                    opacity: 0.8,
                   }}
-                >
-                  CATEGORY 0{idx + 1}
-                </span>
+                />
                 <h3
                   style={{
                     fontFamily: 'var(--font-sans)',
-                    fontSize: '1.15rem',
+                    fontSize: '0.95rem',
                     fontWeight: 600,
                     color: 'var(--text-primary)',
-                    marginBottom: '0.35rem',
+                    letterSpacing: '-0.01em',
+                    margin: 0,
                   }}
                 >
                   {group.category}
                 </h3>
-                <p
-                  style={{
-                    fontSize: '0.825rem',
-                    color: 'var(--text-muted)',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {group.description}
-                </p>
               </div>
 
-              {/* Skills List */}
+              {/* Skills Listed Inline like a Resume */}
               <div
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.65rem',
-                  marginTop: 'auto',
+                  fontSize: '0.95rem',
+                  lineHeight: 1.7,
+                  color: 'var(--text-secondary)',
                 }}
               >
                 {group.skills.map((skill, sIdx) => (
-                  <div
-                    key={sIdx}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'baseline',
-                      justifyContent: 'space-between',
-                      gap: '0.75rem',
-                      padding: '0.45rem 0.65rem',
-                      borderRadius: 'var(--radius-xs)',
-                      backgroundColor: skill.primary ? 'var(--bg-main)' : 'transparent',
-                      border: skill.primary ? '1px solid var(--border-subtle)' : '1px solid transparent',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      {skill.primary && (
-                        <span
-                          style={{
-                            width: '5px',
-                            height: '5px',
-                            borderRadius: '50%',
-                            backgroundColor: 'var(--accent-primary)',
-                            display: 'inline-block',
-                          }}
-                        />
-                      )}
+                  <span key={sIdx} style={{ display: 'inline' }}>
+                    <span
+                      style={{
+                        color: skill.primary ? 'var(--text-primary)' : 'var(--text-secondary)',
+                        fontWeight: skill.primary ? 600 : 400,
+                      }}
+                    >
+                      {skill.name}
+                    </span>
+                    {sIdx < group.skills.length - 1 && (
                       <span
                         style={{
-                          fontSize: '0.875rem',
-                          fontWeight: skill.primary ? 600 : 500,
-                          color: 'var(--text-primary)',
-                        }}
-                      >
-                        {skill.name}
-                      </span>
-                    </div>
-
-                    {skill.note && (
-                      <span
-                        style={{
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '0.72rem',
                           color: 'var(--text-muted)',
-                          textAlign: 'right',
+                          margin: '0 0.5rem',
+                          userSelect: 'none',
                         }}
                       >
-                        {skill.note}
+                        ·
                       </span>
                     )}
-                  </div>
+                  </span>
                 ))}
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Responsive Stacking for Mobile */}
+      <style>{`
+        @media (max-width: 640px) {
+          .skill-spec-row {
+            grid-template-columns: 1fr !important;
+            gap: 0.5rem !important;
+            padding: 1rem 0 !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
