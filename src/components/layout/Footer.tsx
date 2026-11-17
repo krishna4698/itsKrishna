@@ -65,7 +65,7 @@ export function Footer() {
                   width: '7px',
                   height: '7px',
                   borderRadius: '50%',
-                  backgroundColor: '#2D8A4E',
+                  backgroundColor: 'var(--status-dot)',
                   display: 'inline-block',
                 }}
               />

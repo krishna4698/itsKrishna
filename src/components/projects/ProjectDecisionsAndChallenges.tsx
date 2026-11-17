@@ -210,7 +210,7 @@ export function ProjectDecisionsAndChallenges({ project }: ProjectDecisionsAndCh
                     fontSize: '0.6875rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
-                    color: '#2D8A4E',
+                    color: 'var(--text-success)',
                     display: 'block',
                     marginBottom: '0.2rem',
                     fontWeight: 600,

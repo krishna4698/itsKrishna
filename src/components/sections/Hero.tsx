@@ -80,75 +80,26 @@ export function Hero() {
               {personalData.shortBio}
             </p>
 
-            {/* Engineering Problems Statement */}
+            {/* Engineering Focus Statement (Clean Editorial Callout, No Box) */}
             <div
               style={{
-                padding: '1.15rem 1.35rem',
-                backgroundColor: 'var(--bg-surface)',
-                borderLeft: '3px solid var(--accent-primary)',
-                borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
-                borderTop: '1px solid var(--border-subtle)',
-                borderRight: '1px solid var(--border-subtle)',
-                borderBottom: '1px solid var(--border-subtle)',
-                marginBottom: '1.75rem',
+                borderLeft: '2px solid var(--border-strong)',
+                paddingLeft: '1rem',
+                marginBottom: '2rem',
                 maxWidth: '620px',
               }}
             >
-              <span
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.6875rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  color: 'var(--accent-primary)',
-                  display: 'block',
-                  marginBottom: '0.35rem',
-                  fontWeight: 600,
-                }}
-              >
-                Engineering Focus & Problem Space
-              </span>
               <p
                 style={{
                   fontSize: '0.95rem',
-                  lineHeight: 1.6,
-                  color: 'var(--text-primary)',
+                  lineHeight: 1.65,
+                  color: 'var(--text-secondary)',
                   fontStyle: 'normal',
                 }}
               >
                 {personalData.engineeringStatement}
               </p>
             </div>
-
-            {/* Technical Interests */}
-            {/* <div style={{ marginBottom: '2.25rem' }}>
-              <span
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  color: 'var(--text-muted)',
-                  display: 'block',
-                  marginBottom: '0.65rem',
-                }}
-              >
-                Technical Interests
-              </span>
-              <div
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '0.5rem',
-                }}
-              >
-                {personalData.technicalInterests.map((interest) => (
-                  <Badge key={interest} variant="tech">
-                    {interest}
-                  </Badge>
-                ))}
-              </div>
-            </div> */}
 
             {/* Action Buttons & Social Links */}
             <div
@@ -340,7 +291,7 @@ export function Hero() {
                   width: '18px',
                   height: '18px',
                   borderRadius: '50%',
-                  backgroundColor: '#2D8A4E',
+                  backgroundColor: 'var(--status-dot)',
                   border: '3px solid var(--bg-main)',
                 }}
               />
@@ -385,7 +336,7 @@ export function Hero() {
                   width: '6px',
                   height: '6px',
                   borderRadius: '50%',
-                  backgroundColor: '#2D8A4E',
+                  backgroundColor: 'var(--status-dot)',
                   display: 'inline-block',
                 }}
               />

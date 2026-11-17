@@ -29,42 +29,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
         position: 'relative',
       }}
     >
-      {/* Mini Browser Window Frame Header */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0.55rem 0.85rem',
-          backgroundColor: 'var(--bg-surface-elevated)',
-          borderBottom: '1px solid var(--border-subtle)',
-          fontSize: '0.6875rem',
-          fontFamily: 'var(--font-mono)',
-          color: 'var(--text-muted)',
-          transition: 'background-color 200ms ease, border-color 200ms ease',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FF5F56', opacity: 0.85, display: 'inline-block' }} />
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FFBD2E', opacity: 0.85, display: 'inline-block' }} />
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27C93F', opacity: 0.85, display: 'inline-block' }} />
-        </div>
-        <div
-          style={{
-            backgroundColor: 'var(--bg-main)',
-            padding: '0.12rem 0.65rem',
-            borderRadius: 'var(--radius-xs)',
-            border: '1px solid var(--border-subtle)',
-            fontSize: '0.625rem',
-            letterSpacing: '0.04em',
-            color: 'var(--text-muted)',
-          }}
-        >
-          sys://{project.slug}
-        </div>
-        <div style={{ width: '32px' }} />
-      </div>
-
       {/* Visual Architectural Preview Graphic */}
       <ProjectPreviewGraphic
         slug={project.slug}

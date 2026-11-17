@@ -30,6 +30,9 @@
   --accent-text: #163327;
   --accent-contrast: #FFFFFF;
 
+  --status-dot: #2D8A4E;
+  --text-success: #2D8A4E;
+
   /* Card Shadows with warm tint */
   --shadow-sm: 0 1px 3px rgba(28, 26, 24, 0.05);
   --shadow-card: 0 4px 20px -2px rgba(28, 26, 24, 0.06), 0 1px 3px rgba(28, 26, 24, 0.04);
@@ -56,36 +59,39 @@
 }
 
 [data-theme="dark"] {
-  /* Color Palette — High-Contrast Forest Carbon (Dark) */
-  --bg-main: #111413;
-  --bg-secondary: #171C19;
-  --bg-surface: #1C2320;
-  --bg-surface-subtle: #25312B;
-  --bg-surface-elevated: #222B27;
-  --bg-code: #1A221E;
-  --bg-header: rgba(17, 20, 19, 0.88);
-  --bg-header-scrolled: rgba(17, 20, 19, 0.96);
+  /* Color Palette — Pure Pitch Black & Clean Monochrome White (Zero AI Green) */
+  --bg-main: #000000;
+  --bg-secondary: #0A0A0A;
+  --bg-surface: #111111;
+  --bg-surface-subtle: #18181A;
+  --bg-surface-elevated: #141416;
+  --bg-code: #121214;
+  --bg-header: rgba(0, 0, 0, 0.82);
+  --bg-header-scrolled: rgba(0, 0, 0, 0.94);
 
-  --text-primary: #F2EFEB;
-  --text-secondary: #A8A6A0;
-  --text-muted: #7A7873;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --text-success: #FFFFFF;
 
-  --border-subtle: #242E29;
-  --border-default: #313E37;
-  --border-strong: #4A5D54;
+  --border-subtle: #1C1C1F;
+  --border-default: #27272A;
+  --border-strong: #3F3F46;
 
-  /* Accent — Vibrant Emerald in Dark Mode */
-  --accent-primary: #34D399;
-  --accent-hover: #10B981;
-  --accent-light: #132E22;
-  --accent-border: #23543D;
-  --accent-text: #6EE7B7;
-  --accent-contrast: #0F1713;
+  /* Accent — Pure Monochrome White in Dark Mode */
+  --accent-primary: #FFFFFF;
+  --accent-hover: #E4E4E7;
+  --accent-light: #18181B;
+  --accent-border: #3A3A40;
+  --accent-text: #FFFFFF;
+  --accent-contrast: #000000;
 
-  /* Card Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 4px 24px -2px rgba(0, 0, 0, 0.45);
-  --shadow-card-hover: 0 14px 36px -4px rgba(0, 0, 0, 0.65);
+  --status-dot: #FFFFFF;
+
+  /* Shadows for Deep Pitch Black */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 24px -2px rgba(0, 0, 0, 0.7);
+  --shadow-card-hover: 0 14px 36px -4px rgba(0, 0, 0, 0.9);
 }
 
 /* Base Reset */
