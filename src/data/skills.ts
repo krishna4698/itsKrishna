@@ -6,7 +6,7 @@ export const skillGroups: SkillGroup[] = [
     description: 'Core programming and scripting languages used in production backends and services.',
     skills: [
       { name: 'TypeScript', primary: true, note: 'Strict typing, interfaces, generic utility types' },
-      { name: 'JavaScript (ESNext)', primary: true, note: 'Asynchronous event loop, promises, V8 runtime' },
+      { name: 'JavaScript', primary: true, note: 'Asynchronous event loop, promises, V8 runtime' },
       { name: 'SQL', primary: true, note: 'Complex joins, indexing, query optimization, MSSQL & Postgres' },
       { name: 'C++', primary: false, note: 'Core computer science fundamentals, DSA, memory concepts' },
     ],
