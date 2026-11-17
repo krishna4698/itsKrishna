@@ -156,7 +156,7 @@ export function Hero() {
                 display: 'flex',
                 flexWrap: 'wrap',
                 alignItems: 'center',
-                gap: '1rem',
+                gap: '1.25rem',
               }}
             >
               <a
@@ -165,12 +165,12 @@ export function Hero() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  padding: '0.75rem 1.4rem',
+                  padding: '0.75rem 1.6rem',
                   backgroundColor: 'var(--accent-primary)',
                   color: 'var(--accent-contrast)',
-                  borderRadius: 'var(--radius-xs)',
+                  borderRadius: '9999px',
                   fontWeight: 500,
-                  fontSize: '0.95rem',
+                  fontSize: '0.925rem',
                   transition: 'background-color 150ms ease, transform 150ms ease',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-hover)')}
@@ -180,69 +180,80 @@ export function Hero() {
                 <ArrowRightIcon width="16" height="16" />
               </a>
 
-              <a
-                href={personalData.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Profile"
+              {/* Social Links (Clean, Unboxed with Icons, Zero Clutter) */}
+              <div
                 style={{
-                  display: 'inline-flex',
+                  display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.15rem',
-                  backgroundColor: 'var(--bg-surface)',
-                  color: 'var(--text-primary)',
-                  border: '1px solid var(--border-default)',
-                  borderRadius: 'var(--radius-xs)',
-                  fontWeight: 500,
-                  fontSize: '0.9rem',
+                  gap: '1rem',
+                  flexWrap: 'wrap',
                 }}
               >
-                <GithubIcon width="16" height="16" />
-                <span>GitHub</span>
-              </a>
+                <a
+                  href={personalData.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    color: 'var(--text-secondary)',
+                    transition: 'color 150ms ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-primary)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                >
+                  <GithubIcon width="16" height="16" />
+                  <span>GitHub</span>
+                </a>
 
-              <a
-                href={personalData.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.15rem',
-                  backgroundColor: 'var(--bg-surface)',
-                  color: 'var(--text-primary)',
-                  border: '1px solid var(--border-default)',
-                  borderRadius: 'var(--radius-xs)',
-                  fontWeight: 500,
-                  fontSize: '0.9rem',
-                }}
-              >
-                <LinkedinIcon width="16" height="16" />
-                <span>LinkedIn</span>
-              </a>
+                <span style={{ color: 'var(--border-default)', userSelect: 'none' }}>·</span>
 
-              <a
-                href={`mailto:${personalData.email}`}
-                aria-label="Email Me"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.15rem',
-                  backgroundColor: 'transparent',
-                  color: 'var(--text-secondary)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: 'var(--radius-xs)',
-                  fontWeight: 500,
-                  fontSize: '0.9rem',
-                }}
-              >
-                <MailIcon width="16" height="16" />
-                <span>Contact</span>
-              </a>
+                <a
+                  href={personalData.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    color: 'var(--text-secondary)',
+                    transition: 'color 150ms ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-primary)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                >
+                  <LinkedinIcon width="16" height="16" />
+                  <span>LinkedIn</span>
+                </a>
+
+                <span style={{ color: 'var(--border-default)', userSelect: 'none' }}>·</span>
+
+                <a
+                  href={`mailto:${personalData.email}`}
+                  aria-label="Email Me"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    color: 'var(--text-secondary)',
+                    transition: 'color 150ms ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent-primary)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                >
+                  <MailIcon width="16" height="16" />
+                  <span>Email</span>
+                </a>
+              </div>
             </div>
           </div>
 

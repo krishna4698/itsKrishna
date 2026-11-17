@@ -150,7 +150,7 @@ export function Navbar() {
             );
           })}
 
-          {/* Theme Toggle Button (Desktop) */}
+          {/* Theme Toggle Button (Desktop - Clean Circle) */}
           <button
             type="button"
             onClick={toggleTheme}
@@ -162,17 +162,20 @@ export function Navbar() {
               justifyContent: 'center',
               width: '36px',
               height: '36px',
-              borderRadius: 'var(--radius-xs)',
-              backgroundColor: 'var(--bg-surface)',
+              borderRadius: '50%',
+              backgroundColor: 'transparent',
               border: '1px solid var(--border-default)',
               color: 'var(--text-primary)',
               cursor: 'pointer',
               transition: 'all 150ms ease',
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-default)')}
           >
             {theme === 'light' ? <MoonIcon width="16" height="16" /> : <SunIcon width="16" height="16" />}
           </button>
 
+          {/* GitHub Button (Sleek Rounded Pill) */}
           <a
             href={personalData.githubUrl}
             target="_blank"
@@ -181,18 +184,26 @@ export function Navbar() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.4rem',
-              padding: '0.45rem 0.95rem',
-              fontSize: '0.875rem',
+              padding: '0.45rem 1rem',
+              fontSize: '0.85rem',
               fontWeight: 500,
               color: 'var(--text-primary)',
-              backgroundColor: 'var(--bg-surface)',
+              backgroundColor: 'transparent',
               border: '1px solid var(--border-default)',
-              borderRadius: 'var(--radius-xs)',
+              borderRadius: '9999px',
               transition: 'all 150ms ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent-primary)';
+              e.currentTarget.style.color = 'var(--accent-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border-default)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
           >
             <span>GitHub</span>
-            <ArrowRightIcon width="14" height="14" />
+            <ArrowRightIcon width="13" height="13" />
           </a>
         </nav>
 
@@ -208,8 +219,8 @@ export function Navbar() {
               justifyContent: 'center',
               width: '36px',
               height: '36px',
-              borderRadius: 'var(--radius-xs)',
-              backgroundColor: 'var(--bg-surface)',
+              borderRadius: '50%',
+              backgroundColor: 'transparent',
               border: '1px solid var(--border-default)',
               color: 'var(--text-primary)',
               cursor: 'pointer',

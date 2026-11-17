@@ -59,11 +59,11 @@ export function Projects() {
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
                   style={{
-                    backgroundColor: isSelected ? 'var(--accent-primary)' : 'var(--bg-surface)',
+                    backgroundColor: isSelected ? 'var(--accent-primary)' : 'transparent',
                     color: isSelected ? 'var(--accent-contrast)' : 'var(--text-secondary)',
                     border: isSelected ? '1px solid var(--accent-primary)' : '1px solid var(--border-default)',
-                    padding: '0.45rem 0.95rem',
-                    borderRadius: 'var(--radius-xs)',
+                    padding: '0.4rem 1rem',
+                    borderRadius: '9999px',
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.75rem',
                     fontWeight: 500,

@@ -38,6 +38,8 @@ export function Badge({ children, variant = 'tech', className = '', hasDot = fal
       letterSpacing: '0.06em',
       fontSize: '0.6875rem',
       fontWeight: 600,
+      borderRadius: '9999px',
+      padding: '0.3rem 0.75rem',
     },
     status: {
       backgroundColor: 'var(--bg-surface)',
