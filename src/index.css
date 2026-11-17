@@ -4,27 +4,36 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette — Warm Editorial */
-  --bg-main: #F7F6F2;
-  --bg-surface: #FFFFFF;
-  --bg-surface-subtle: #F0EEE7;
-  --bg-surface-elevated: #FAF9F6;
-  --bg-code: #ECEAE1;
+  /* Color Palette — Warm Tactile Paper & Editorial Ink (Light) */
+  --bg-main: #FAF8F5;          /* Warm parchment base */
+  --bg-secondary: #F0EAE1;     /* Distinct warm sand surface for contrast bands & sections */
+  --bg-surface: #FFFFFF;       /* Crisp white for cards sitting on paper/secondary */
+  --bg-surface-subtle: #ECE5DA; /* Warm pill/badge background */
+  --bg-surface-elevated: #F5EFE6;
+  --bg-code: #EAE3D6;
+  --bg-header: rgba(250, 248, 245, 0.88);
+  --bg-header-scrolled: rgba(250, 248, 245, 0.96);
   
-  --text-primary: #1F201E;
-  --text-secondary: #5C5F58;
-  --text-muted: #82857E;
+  --text-primary: #1C1A18;     /* Deep warm ink */
+  --text-secondary: #58554E;   /* Warm charcoal stone */
+  --text-muted: #827E74;       /* Tactile label text */
   
-  --border-subtle: #E8E6DF;
-  --border-default: #DDDCD3;
-  --border-strong: #BCBAB0;
+  --border-subtle: #E8E1D5;    /* Soft paper seam */
+  --border-default: #DDD4C5;   /* Crisp paper boundary */
+  --border-strong: #B8ADA0;    /* Focused border */
   
   /* Accent — Restrained Forest Green */
-  --accent-primary: #234234;
-  --accent-hover: #172D23;
-  --accent-light: #EEF3F0;
-  --accent-border: #BCD2C5;
-  --accent-text: #1C382C;
+  --accent-primary: #1E3F30;
+  --accent-hover: #142C22;
+  --accent-light: #EBF2EE;
+  --accent-border: #BDD4C8;
+  --accent-text: #163327;
+  --accent-contrast: #FFFFFF;
+
+  /* Card Shadows with warm tint */
+  --shadow-sm: 0 1px 3px rgba(28, 26, 24, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(28, 26, 24, 0.06), 0 1px 3px rgba(28, 26, 24, 0.04);
+  --shadow-card-hover: 0 14px 34px -4px rgba(28, 26, 24, 0.12), 0 2px 6px rgba(28, 26, 24, 0.05);
 
   /* Typography Stacks */
   --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
@@ -35,15 +44,48 @@
   --max-width: 1140px;
   --max-width-narrow: 840px;
   --header-height: 70px;
-  --radius-xs: 3px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] {
+  /* Color Palette — High-Contrast Forest Carbon (Dark) */
+  --bg-main: #111413;
+  --bg-secondary: #171C19;
+  --bg-surface: #1C2320;
+  --bg-surface-subtle: #25312B;
+  --bg-surface-elevated: #222B27;
+  --bg-code: #1A221E;
+  --bg-header: rgba(17, 20, 19, 0.88);
+  --bg-header-scrolled: rgba(17, 20, 19, 0.96);
+
+  --text-primary: #F2EFEB;
+  --text-secondary: #A8A6A0;
+  --text-muted: #7A7873;
+
+  --border-subtle: #242E29;
+  --border-default: #313E37;
+  --border-strong: #4A5D54;
+
+  /* Accent — Vibrant Emerald in Dark Mode */
+  --accent-primary: #34D399;
+  --accent-hover: #10B981;
+  --accent-light: #132E22;
+  --accent-border: #23543D;
+  --accent-text: #6EE7B7;
+  --accent-contrast: #0F1713;
+
+  /* Card Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 24px -2px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 14px 36px -4px rgba(0, 0, 0, 0.65);
 }
 
 /* Base Reset */
@@ -62,6 +104,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 20px);
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 body {
@@ -69,6 +112,7 @@ body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   overflow-x: hidden;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 #root {

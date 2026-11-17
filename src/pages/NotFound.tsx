@@ -23,7 +23,7 @@ export function NotFound() {
             marginBottom: '1rem',
           }}
         >
-          // ERROR 404
+          ERROR 404
         </span>
         <h1
           style={{
@@ -56,8 +56,8 @@ export function NotFound() {
               gap: '0.5rem',
               padding: '0.75rem 1.4rem',
               backgroundColor: 'var(--accent-primary)',
-              color: '#FFFFFF',
-              borderRadius: 'var(--radius-xs)',
+              color: 'var(--accent-contrast)',
+              borderRadius: '9999px',
               fontSize: '0.9rem',
               fontWeight: 500,
             }}
@@ -73,10 +73,10 @@ export function NotFound() {
               alignItems: 'center',
               gap: '0.5rem',
               padding: '0.75rem 1.4rem',
-              backgroundColor: 'var(--bg-surface)',
+              backgroundColor: 'transparent',
               color: 'var(--text-primary)',
               border: '1px solid var(--border-default)',
-              borderRadius: 'var(--radius-xs)',
+              borderRadius: '9999px',
               fontSize: '0.9rem',
               fontWeight: 500,
             }}

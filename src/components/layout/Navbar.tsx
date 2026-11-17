@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from '../../router/Link.tsx';
 import { useRouter } from '../../router/useRouter.ts';
+import { useTheme } from '../../context/useTheme.ts';
 import { personalData } from '../../data/personal.ts';
-import { MenuIcon, CloseIcon, ArrowRightIcon } from '../common/Icons.tsx';
+import { MenuIcon, CloseIcon, ArrowRightIcon, SunIcon, MoonIcon } from '../common/Icons.tsx';
 
 export function Navbar() {
   const { currentPath, navigate } = useRouter();
+  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -43,7 +45,6 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: 'About', href: '/#about' },
     { label: 'Projects', href: '/#projects' },
     { label: 'Skills', href: '/#skills' },
     { label: 'Experience', href: '/#experience' },
@@ -61,8 +62,9 @@ export function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        backgroundColor: isScrolled ? 'rgba(247, 246, 242, 0.92)' : 'var(--bg-main)',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+        backgroundColor: isScrolled ? 'var(--bg-header-scrolled)' : 'var(--bg-header)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
         borderBottom: isScrolled ? '1px solid var(--border-default)' : '1px solid transparent',
         transition: 'all 200ms ease',
       }}
@@ -86,24 +88,6 @@ export function Navbar() {
             textDecoration: 'none',
           }}
         >
-          <span
-            style={{
-              width: '32px',
-              height: '32px',
-              backgroundColor: 'var(--accent-primary)',
-              color: '#F7F6F2',
-              fontFamily: 'var(--font-serif)',
-              fontSize: '0.925rem',
-              fontWeight: 600,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 'var(--radius-xs)',
-              letterSpacing: '0.02em',
-            }}
-          >
-            KJ
-          </span>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span
               style={{
@@ -136,7 +120,7 @@ export function Navbar() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '2rem',
+            gap: '1.75rem',
           }}
           className="desktop-nav"
         >
@@ -158,6 +142,7 @@ export function Navbar() {
                   color: isActive ? 'var(--accent-primary)' : 'var(--text-secondary)',
                   position: 'relative',
                   padding: '0.4rem 0',
+                  transition: 'color 150ms ease',
                 }}
               >
                 {link.label}
@@ -165,6 +150,32 @@ export function Navbar() {
             );
           })}
 
+          {/* Theme Toggle Button (Desktop - Clean Circle) */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              backgroundColor: 'transparent',
+              border: '1px solid var(--border-default)',
+              color: 'var(--text-primary)',
+              cursor: 'pointer',
+              transition: 'all 150ms ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--text-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border-default)')}
+          >
+            {theme === 'light' ? <MoonIcon width="16" height="16" /> : <SunIcon width="16" height="16" />}
+          </button>
+
+          {/* GitHub Button (Sleek Rounded Pill) */}
           <a
             href={personalData.githubUrl}
             target="_blank"
@@ -173,39 +184,71 @@ export function Navbar() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.4rem',
-              padding: '0.45rem 0.95rem',
-              fontSize: '0.875rem',
+              padding: '0.45rem 1rem',
+              fontSize: '0.85rem',
               fontWeight: 500,
               color: 'var(--text-primary)',
-              backgroundColor: 'var(--bg-surface)',
+              backgroundColor: 'transparent',
               border: '1px solid var(--border-default)',
-              borderRadius: 'var(--radius-xs)',
+              borderRadius: '9999px',
               transition: 'all 150ms ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = 'var(--accent-primary)';
+              e.currentTarget.style.color = 'var(--accent-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'var(--border-default)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
           >
             <span>GitHub</span>
-            <ArrowRightIcon width="14" height="14" />
+            <ArrowRightIcon width="13" height="13" />
           </a>
         </nav>
 
-        {/* Mobile Menu Toggle Button */}
-        <button
-          type="button"
-          aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={mobileMenuOpen}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="mobile-nav-toggle"
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: '0.5rem',
-            color: 'var(--text-primary)',
-          }}
-        >
-          {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
+        {/* Mobile Action Controls (Theme Toggle + Hamburger) */}
+        <div style={{ display: 'none', alignItems: 'center', gap: '0.5rem' }} className="mobile-actions">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '36px',
+              height: '36px',
+              borderRadius: '50%',
+              backgroundColor: 'transparent',
+              border: '1px solid var(--border-default)',
+              color: 'var(--text-primary)',
+              cursor: 'pointer',
+            }}
+          >
+            {theme === 'light' ? <MoonIcon width="16" height="16" /> : <SunIcon width="16" height="16" />}
+          </button>
+
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-nav-toggle"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '0.5rem',
+              color: 'var(--text-primary)',
+            }}
+          >
+            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -278,7 +321,7 @@ export function Navbar() {
           .desktop-nav {
             display: none !important;
           }
-          .mobile-nav-toggle {
+          .mobile-actions {
             display: flex !important;
           }
         }

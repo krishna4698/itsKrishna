@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { personalData } from '../../data/personal.ts';
 import { SectionHeading } from '../common/SectionHeading.tsx';
-import { MailIcon, CopyIcon, CheckIcon, GithubIcon, LinkedinIcon, ArrowRightIcon } from '../common/Icons.tsx';
+import { MailIcon, GithubIcon, LinkedinIcon, CopyIcon, CheckIcon, ArrowRightIcon } from '../common/Icons.tsx';
 
 export function Contact() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    if (typeof window !== 'undefined') {
-      navigator.clipboard.writeText(personalData.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    navigator.clipboard.writeText(personalData.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -21,29 +19,27 @@ export function Contact() {
         paddingTop: 'clamp(4.5rem, 8vw, 7.5rem)',
         paddingBottom: 'clamp(4.5rem, 8vw, 7.5rem)',
         backgroundColor: 'var(--bg-main)',
+        transition: 'background-color 200ms ease',
       }}
     >
       <div className="container">
-        <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
           <SectionHeading
-            kicker="05. Get In Touch"
+            kicker="Get In Touch"
             title="Start an Engineering Conversation"
             description="Whether you want to discuss distributed architectures, system performance, collaboration on technical projects, or open engineering roles — my inbox is open."
             align="center"
           />
 
-          {/* Main Contact Card */}
+          {/* Unboxed Editorial Contact Hub */}
           <div
             style={{
-              backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border-default)',
-              borderRadius: 'var(--radius-md)',
-              padding: 'clamp(2rem, 5vw, 3.25rem)',
-              boxShadow: '0 4px 20px -2px rgba(32, 33, 31, 0.04)',
+              paddingTop: '2.5rem',
+              borderTop: '1px solid var(--border-default)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '1.75rem',
+              gap: '2rem',
             }}
           >
             {/* Direct Email Address Display */}
@@ -52,7 +48,7 @@ export function Contact() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '0.5rem',
+                gap: '0.4rem',
               }}
             >
               <span
@@ -70,10 +66,12 @@ export function Contact() {
                 href={`mailto:${personalData.email}`}
                 style={{
                   fontFamily: 'var(--font-serif)',
-                  fontSize: 'clamp(1.4rem, 3.5vw, 2.1rem)',
+                  fontSize: 'clamp(1.65rem, 4vw, 2.5rem)',
                   fontWeight: 600,
                   color: 'var(--text-primary)',
                   textDecoration: 'none',
+                  letterSpacing: '-0.02em',
+                  transition: 'color 150ms ease',
                 }}
               >
                 {personalData.email}
@@ -95,10 +93,10 @@ export function Contact() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  padding: '0.75rem 1.4rem',
+                  padding: '0.75rem 1.6rem',
                   backgroundColor: 'var(--accent-primary)',
-                  color: '#FFFFFF',
-                  borderRadius: 'var(--radius-xs)',
+                  color: 'var(--accent-contrast)',
+                  borderRadius: '9999px',
                   fontWeight: 500,
                   fontSize: '0.925rem',
                   transition: 'background-color 150ms ease',
@@ -118,11 +116,11 @@ export function Contact() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  padding: '0.75rem 1.25rem',
-                  backgroundColor: 'var(--bg-main)',
+                  padding: '0.75rem 1.4rem',
+                  backgroundColor: 'transparent',
                   color: 'var(--text-primary)',
                   border: '1px solid var(--border-default)',
-                  borderRadius: 'var(--radius-xs)',
+                  borderRadius: '9999px',
                   fontWeight: 500,
                   fontSize: '0.925rem',
                   cursor: 'pointer',
@@ -138,12 +136,12 @@ export function Contact() {
             <div
               style={{
                 width: '100%',
-                paddingTop: '1.5rem',
+                paddingTop: '2rem',
                 borderTop: '1px solid var(--border-subtle)',
                 display: 'flex',
                 flexWrap: 'wrap',
                 justifyContent: 'center',
-                gap: '1.75rem',
+                gap: '2rem',
               }}
             >
               <a
@@ -151,7 +149,7 @@ export function Contact() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
+                  gap: '0.45rem',
                   fontSize: '0.9rem',
                   color: 'var(--text-secondary)',
                 }}
@@ -166,12 +164,12 @@ export function Contact() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
+                  gap: '0.45rem',
                   fontSize: '0.9rem',
                   color: 'var(--text-secondary)',
                 }}
               >
-                <GithubIcon width="16" height="16" />
+                <GithubIcon width="15" height="15" />
                 <span>github.com/krishna4698</span>
               </a>
 
@@ -182,12 +180,12 @@ export function Contact() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
+                  gap: '0.45rem',
                   fontSize: '0.9rem',
                   color: 'var(--text-secondary)',
                 }}
               >
-                <LinkedinIcon width="16" height="16" />
+                <LinkedinIcon width="15" height="15" />
                 <span>linkedin.com/in/krishna9987</span>
               </a>
             </div>
@@ -212,7 +210,7 @@ export function Contact() {
                   display: 'inline-block',
                 }}
               />
-              <span>Currently in {personalData.location}</span>
+              <span>Currently in {personalData.location} · Open to remote & on-site</span>
             </div>
           </div>
         </div>

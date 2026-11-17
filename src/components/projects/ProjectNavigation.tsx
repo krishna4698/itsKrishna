@@ -123,7 +123,7 @@ export function ProjectNavigation({ prevProject, nextProject }: ProjectNavigatio
             padding: '0.65rem 1.25rem',
             backgroundColor: 'var(--bg-main)',
             border: '1px solid var(--border-default)',
-            borderRadius: 'var(--radius-xs)',
+            borderRadius: '9999px',
             fontFamily: 'var(--font-mono)',
             fontSize: '0.8125rem',
             color: 'var(--text-primary)',

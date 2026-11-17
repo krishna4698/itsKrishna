@@ -24,11 +24,47 @@ export function ProjectCard({ project }: ProjectCardProps) {
         flexDirection: 'column',
         overflow: 'hidden',
         transition: 'border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease',
-        transform: isHovered ? 'translateY(-2px)' : 'none',
-        boxShadow: isHovered ? '0 8px 24px -4px rgba(35, 66, 52, 0.08)' : 'none',
+        transform: isHovered ? 'translateY(-3px)' : 'none',
+        boxShadow: isHovered ? 'var(--shadow-card-hover)' : 'var(--shadow-card)',
         position: 'relative',
       }}
     >
+      {/* Mini Browser Window Frame Header */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0.55rem 0.85rem',
+          backgroundColor: 'var(--bg-surface-elevated)',
+          borderBottom: '1px solid var(--border-subtle)',
+          fontSize: '0.6875rem',
+          fontFamily: 'var(--font-mono)',
+          color: 'var(--text-muted)',
+          transition: 'background-color 200ms ease, border-color 200ms ease',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FF5F56', opacity: 0.85, display: 'inline-block' }} />
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#FFBD2E', opacity: 0.85, display: 'inline-block' }} />
+          <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#27C93F', opacity: 0.85, display: 'inline-block' }} />
+        </div>
+        <div
+          style={{
+            backgroundColor: 'var(--bg-main)',
+            padding: '0.12rem 0.65rem',
+            borderRadius: 'var(--radius-xs)',
+            border: '1px solid var(--border-subtle)',
+            fontSize: '0.625rem',
+            letterSpacing: '0.04em',
+            color: 'var(--text-muted)',
+          }}
+        >
+          sys://{project.slug}
+        </div>
+        <div style={{ width: '32px' }} />
+      </div>
+
       {/* Visual Architectural Preview Graphic */}
       <ProjectPreviewGraphic
         slug={project.slug}
@@ -103,18 +139,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.tagline}
         </p>
 
-        {/* Key Metrics Pill (if present) */}
+        {/* Key Metrics (Clean inline, no chunky box) */}
         {project.metrics && project.metrics.length > 0 && (
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              marginBottom: '1.25rem',
-              padding: '0.5rem 0.75rem',
-              backgroundColor: 'var(--bg-main)',
-              borderRadius: 'var(--radius-xs)',
-              border: '1px solid var(--border-subtle)',
+              marginBottom: '1rem',
+              fontSize: '0.8125rem',
+              color: 'var(--text-secondary)',
             }}
           >
             <span
@@ -124,39 +158,31 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 textTransform: 'uppercase',
                 color: 'var(--accent-primary)',
                 fontWeight: 600,
+                letterSpacing: '0.04em',
               }}
             >
               METRIC:
             </span>
-            <span
-              style={{
-                fontSize: '0.8125rem',
-                fontWeight: 500,
-                color: 'var(--text-primary)',
-              }}
-            >
-              {project.metrics[0].label} — {project.metrics[0].value}
+            <span>
+              {project.metrics[0].label} —{' '}
+              <strong style={{ color: 'var(--text-primary)', fontWeight: 600 }}>
+                {project.metrics[0].value}
+              </strong>
             </span>
           </div>
         )}
 
-        {/* Technologies List */}
+        {/* Technologies List (Clean inline monospace, no plastic pill boxes) */}
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '0.4rem',
-            marginBottom: '1.5rem',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.78rem',
+            color: 'var(--text-muted)',
+            marginBottom: '1.25rem',
+            lineHeight: 1.5,
           }}
         >
-          {project.technologies.slice(0, 5).map((tech) => (
-            <Badge key={tech} variant="tech">
-              {tech}
-            </Badge>
-          ))}
-          {project.technologies.length > 5 && (
-            <Badge variant="tech">+{project.technologies.length - 5}</Badge>
-          )}
+          {project.technologies.slice(0, 6).join(' · ')}
         </div>
 
         {/* Action Link: Read Case Study */}

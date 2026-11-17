@@ -7,19 +7,19 @@ export function About() {
     {
       title: 'Simplicity Over Unearned Complexity',
       description:
-        'I avoid speculative abstractions and over-engineering. Straightforward code that is easy to read, debug, and delete is superior to clever, unmaintainable micro-frameworks.',
+        'I avoid speculative abstractions and over-engineering. Straightforward code that is easy to read, debug, and delete is superior to clever micro-frameworks.',
       icon: TerminalIcon,
     },
     {
       title: 'Observable by Default',
       description:
-        'A backend system without distributed traces, health probes, and structured metrics is a black box waiting to fail. I design observability directly into service boundaries.',
+        'A backend system without health probes, metrics, and structured logs is a black box waiting to fail. I design observability directly into service boundaries.',
       icon: LayersIcon,
     },
     {
       title: 'Type Safety as Living Contracts',
       description:
-        'Leveraging strict compile-time types across client-server boundaries catches bugs early and serves as authoritative documentation that never goes stale.',
+        'Strict compile-time types across client-server boundaries catch regressions early and serve as documentation that never goes stale.',
       icon: ShieldCheckIcon,
     },
   ];
@@ -31,16 +31,18 @@ export function About() {
         paddingTop: 'clamp(4rem, 7vw, 6.5rem)',
         paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
         borderBottom: '1px solid var(--border-default)',
+        backgroundColor: 'var(--bg-main)',
+        transition: 'background-color 200ms ease, border-color 200ms ease',
       }}
     >
       <div className="container">
         <SectionHeading
-          kicker="01. About & Journey"
-          title="Engineering Background & Craft"
+          kicker="01. About & Craft"
+          title="Engineering Background & Philosophy"
           description="A look at how I think about software architecture, my daily technical focus, and how I approach building reliable software systems."
         />
 
-        {/* Editorial Layout: Narrative & Explorations */}
+        {/* Editorial Layout: Narrative & Unboxed Sidebar */}
         <div
           className="about-grid"
           style={{
@@ -56,7 +58,7 @@ export function About() {
                 key={index}
                 style={{
                   fontSize: '1.05rem',
-                  lineHeight: 1.75,
+                  lineHeight: 1.78,
                   color: 'var(--text-secondary)',
                 }}
               >
@@ -64,66 +66,57 @@ export function About() {
               </p>
             ))}
 
-            {/* Pull Quote / Editorial Highlight */}
-            <div
+            {/* Editorial Pull Quote (Unboxed Classic Typography) */}
+            <blockquote
               style={{
-                marginTop: '1rem',
-                padding: '1.5rem 1.75rem',
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-default)',
-                borderRadius: 'var(--radius-sm)',
+                margin: '1rem 0',
+                paddingLeft: '1.5rem',
+                borderLeft: '3px solid var(--accent-primary)',
               }}
             >
-              <span
+              <p
                 style={{
                   fontFamily: 'var(--font-serif)',
-                  fontSize: '1.25rem',
+                  fontSize: '1.35rem',
                   fontStyle: 'italic',
                   color: 'var(--text-primary)',
                   lineHeight: 1.6,
-                  display: 'block',
-                  marginBottom: '0.5rem',
+                  marginBottom: '0.4rem',
                 }}
               >
                 “The goal is not to write the cleverest code; the goal is to build reliable, maintainable systems that outlive their initial requirements.”
-              </span>
-              <span
+              </p>
+              <cite
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.75rem',
                   color: 'var(--text-muted)',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
+                  letterSpacing: '0.06em',
+                  fontStyle: 'normal',
                 }}
               >
                 — Engineering Philosophy
-              </span>
-            </div>
+              </cite>
+            </blockquote>
           </div>
 
-          {/* Sidebar / Sidebar Dives Column */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {/* Currently Learning / Exploring */}
-            <div
-              style={{
-                backgroundColor: 'var(--bg-surface)',
-                border: '1px solid var(--border-default)',
-                borderRadius: 'var(--radius-sm)',
-                padding: '1.75rem',
-              }}
-            >
+          {/* Sidebar Column (Unboxed, Pure Typography) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+            {/* Active Explorations */}
+            <div style={{ borderTop: '1px solid var(--border-default)', paddingTop: '1.5rem' }}>
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  marginBottom: '1rem',
+                  marginBottom: '0.75rem',
                 }}
               >
                 <span
                   style={{
-                    width: '8px',
-                    height: '8px',
+                    width: '6px',
+                    height: '6px',
                     borderRadius: '50%',
                     backgroundColor: 'var(--accent-primary)',
                     display: 'inline-block',
@@ -132,10 +125,11 @@ export function About() {
                 <h3
                   style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8125rem',
+                    fontSize: '0.8rem',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.06em',
+                    letterSpacing: '0.08em',
                     color: 'var(--text-primary)',
+                    margin: 0,
                   }}
                 >
                   Active Explorations
@@ -145,17 +139,19 @@ export function About() {
                 style={{
                   fontSize: '0.875rem',
                   color: 'var(--text-muted)',
-                  marginBottom: '1.25rem',
+                  lineHeight: 1.5,
+                  marginBottom: '1rem',
                 }}
               >
-                Topics, paradigms, and system components I am actively reading, benchmarking, and prototyping:
+                Paradigms and systems I am actively studying and prototyping:
               </p>
               <ul
                 style={{
                   listStyle: 'none',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '0.85rem',
+                  gap: '0.75rem',
+                  padding: 0,
                 }}
               >
                 {personalData.currentLearning.map((item, idx) => (
@@ -164,7 +160,7 @@ export function About() {
                     style={{
                       fontSize: '0.9rem',
                       color: 'var(--text-secondary)',
-                      lineHeight: 1.55,
+                      lineHeight: 1.5,
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '0.65rem',
@@ -173,9 +169,9 @@ export function About() {
                     <span
                       style={{
                         fontFamily: 'var(--font-mono)',
-                        fontSize: '0.75rem',
+                        fontSize: '0.8rem',
                         color: 'var(--accent-primary)',
-                        marginTop: '0.15rem',
+                        marginTop: '0.1rem',
                       }}
                     >
                       →
@@ -186,23 +182,17 @@ export function About() {
               </ul>
             </div>
 
-            {/* Engineering Principles */}
-            <div
-              style={{
-                backgroundColor: 'var(--bg-surface-elevated)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-sm)',
-                padding: '1.75rem',
-              }}
-            >
+            {/* Core Principles */}
+            <div style={{ borderTop: '1px solid var(--border-default)', paddingTop: '1.5rem' }}>
               <h3
                 style={{
                   fontFamily: 'var(--font-mono)',
-                  fontSize: '0.8125rem',
+                  fontSize: '0.8rem',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
+                  letterSpacing: '0.08em',
                   color: 'var(--text-primary)',
                   marginBottom: '1.25rem',
+                  margin: '0 0 1.25rem 0',
                 }}
               >
                 Core Principles
@@ -214,8 +204,8 @@ export function About() {
                     <div key={idx} style={{ display: 'flex', gap: '0.85rem' }}>
                       <div
                         style={{
-                          width: '28px',
-                          height: '28px',
+                          width: '26px',
+                          height: '26px',
                           borderRadius: '4px',
                           backgroundColor: 'var(--accent-light)',
                           color: 'var(--accent-primary)',
@@ -226,24 +216,25 @@ export function About() {
                           marginTop: '0.15rem',
                         }}
                       >
-                        <Icon width="14" height="14" />
+                        <Icon width="13" height="13" />
                       </div>
                       <div>
                         <h4
                           style={{
-                            fontSize: '0.9rem',
+                            fontSize: '0.925rem',
                             fontWeight: 600,
                             color: 'var(--text-primary)',
-                            marginBottom: '0.25rem',
+                            marginBottom: '0.2rem',
                           }}
                         >
                           {p.title}
                         </h4>
                         <p
                           style={{
-                            fontSize: '0.825rem',
+                            fontSize: '0.85rem',
                             color: 'var(--text-secondary)',
-                            lineHeight: 1.5,
+                            lineHeight: 1.55,
+                            margin: 0,
                           }}
                         >
                           {p.description}
@@ -258,11 +249,12 @@ export function About() {
         </div>
       </div>
 
+      {/* Responsive adjustments */}
       <style>{`
-        @media (max-width: 860px) {
+        @media (max-width: 900px) {
           .about-grid {
             grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
+            gap: 3rem !important;
           }
         }
       `}</style>

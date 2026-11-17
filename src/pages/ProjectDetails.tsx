@@ -48,7 +48,7 @@ export function ProjectDetails() {
               marginBottom: '1rem',
             }}
           >
-            404 // CASE STUDY NOT FOUND
+            404 · CASE STUDY NOT FOUND
           </span>
           <h1
             style={{
@@ -78,8 +78,8 @@ export function ProjectDetails() {
               gap: '0.5rem',
               padding: '0.75rem 1.5rem',
               backgroundColor: 'var(--accent-primary)',
-              color: '#FFFFFF',
-              borderRadius: 'var(--radius-xs)',
+              color: 'var(--accent-contrast)',
+              borderRadius: '9999px',
               fontSize: '0.9rem',
               fontWeight: 500,
             }}
